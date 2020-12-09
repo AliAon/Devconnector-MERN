@@ -1,0 +1,4 @@
+{
+"mongourl":"mongodb+srv://test1234:test1234@connector.zsigu.mongodb.net/test?retryWrites=true&w=majority",
+"jwtSecret":"mysecrettoken"
+}
