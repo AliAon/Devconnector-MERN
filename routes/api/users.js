@@ -7,6 +7,9 @@ const gravatar=require('gravatar');
 const jwt=require('jsonwebtoken');
 const config=require('config');
 
+// rout register user
+//post api/user
+
 router.post('/',[
     check('name','please enter name').not().isEmpty(),
     check('email','please enter email').isEmail(),
@@ -46,10 +49,13 @@ return res.status(400).json({errors:error.array()});
         const payload={
             id:user.id,
         }
-        jwt.sign(payload,config.get('jwtSecret'),{expiresIn:36000},(err,token)=>{
+        //genrate jwt token
+        jwt.sign(payload,
+            config.get('jwtSecret'),
+            {expiresIn:36000},
+            (err,token)=>{
             if(err)throw err;
-                res.json({token});
-           
+            res.json({token});
         });
 
     // res.send('User Register');
