@@ -5,11 +5,16 @@ import Landing from './components/layout/Landing';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+//redux
+import {Provider} from 'react-redux';
+import store from './store'
 
 
-const App =()=>
+const App =()=>(
+<Provider store={store}>
+<Router>
  <Fragment>
-   <Router>
+  
    <Navbar/>
     <Route exact path='/' component={Landing}/>
     <section className="container">
@@ -18,11 +23,9 @@ const App =()=>
     <Route exact path='/login' component={Login}/>
     </Switch>
     </section>
-
     
-   </Router>
-  
 </Fragment>
- 
-
+</Router>
+</Provider>
+);
 export default App;
